@@ -32,7 +32,6 @@ object Autos {
   private enum class AutoMode(val optionName: String, val command: Command) {
     // TODO: Replace with real auto modes and their corresponding commands
     CUSTOM_AUTO_2("Custom Auto Mode 2", exampleAuto2()),
-    CUSTOM_AUTO_3("Custom Auto Mode 3", ExampleCommand()),
     ;
 
     companion object {

@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController
 import edu.wpi.first.wpilibj2.command.button.Trigger
 import frc.robolancers.Constants.ControllerConstants
 import frc.robolancers.commands.Autos
+import frc.robolancers.commands.MoveArmToPos
+import frc.robolancers.subsystems.ArmSubsystem
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -22,6 +24,7 @@ object RobotContainer {
     configureBindings()
     // Reference the Autos object so that it is initialized, placing the chooser on the dashboard
     Autos
+    ArmSubsystem
   }
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
@@ -35,5 +38,9 @@ object RobotContainer {
    * [CommandXboxController]/[PS4][edu.wpi.first.wpilibj2.command.button.CommandPS4Controller]
    * controllers or [Flight joysticks][edu.wpi.first.wpilibj2.command.button.CommandJoystick].
    */
-  private fun configureBindings() {}
+  private fun configureBindings() {
+    driverController.a().whileTrue(MoveArmToPos(1.0, 1.0))
+
+    driverController.a().onFalse(MoveArmToPos(0.0, 0.0))
+  }
 }

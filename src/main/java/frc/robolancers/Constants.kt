@@ -14,14 +14,32 @@ import com.revrobotics.SparkMaxAbsoluteEncoder
 
 object Constants {
   object BaseEnums {
-    val brushless = CANSparkMaxLowLevel.MotorType.kBrushless
-    val dutyCycle = SparkMaxAbsoluteEncoder.Type.kDutyCycle
-    val coast = CANSparkMax.IdleMode.kCoast
-    val brake = CANSparkMax.IdleMode.kBrake
+    val kEbrushless = CANSparkMaxLowLevel.MotorType.kBrushless
+    val kEdutyCycle = SparkMaxAbsoluteEncoder.Type.kDutyCycle
+    val kEcoast = CANSparkMax.IdleMode.kCoast
+    val kEbrake = CANSparkMax.IdleMode.kBrake
+    val kPosition = CANSparkMax.ControlType.kPosition
   }
+
   object ArmConstants {
-    const val kMOTOR_DEVICE_ID_L0 = 0
-    const val kMOTOR_DEVICE_ID_L1 = 1
+    const val kMOTOR_DEVICE_ID_ANCHOR = 0
+    const val kMOTOR_DEVICE_ID_FLOATING = 1
+
+    const val kS = 0.0
+    const val kG = 0.0
+    const val kV = 0.0
+    const val kA = 0.0
+
+    val tunables =
+        mapOf(
+            "kP1" to 0.0,
+            "kI1" to 0.0,
+            "kD1" to 0.0,
+            "kFF1" to 0.0,
+            "kP2" to 0.0,
+            "kI2" to 0.0,
+            "kD2" to 0.0,
+            "kFF2" to 0.0)
   }
 
   object ControllerConstants {
